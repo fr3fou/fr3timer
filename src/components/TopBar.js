@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import '../assets/css/TopBar.css';
 import Scrambo from 'scrambo';
+import Solve from '../models/solve';    
+import Select from '@material-ui/core/Select';
 
 class TopBar extends Component {
     constructor(props) {
@@ -8,6 +10,9 @@ class TopBar extends Component {
         this.state = {
             scramble: ''
         }
+    }
+
+    componentDidMount() {
         this.generateScramble();
     }
 
@@ -19,7 +24,10 @@ class TopBar extends Component {
     render() {
         return (
             <div className='TopBarWrapper'>
-                {this.state.puzzleType}
+                {this.props.puzzleType}
+                <div className='TopBarScramble'>
+                    {this.state.scramble}
+                </div>
             </div>
         );
     }

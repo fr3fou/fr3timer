@@ -7,3 +7,8 @@
     font-size:3em;
     box-shadow: 1px 1px 1px #888888;
 }
+
+.TopBarScramble {
+    margin-top: 30px;
+    font-size: 2rem;
+}
