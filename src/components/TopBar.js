@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
 import '../assets/css/TopBar.css';
+import Scrambo from 'scrambo';
 
 class TopBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            puzzleType: '3x3',
             scramble: ''
         }
+        this.generateScramble();
     }
-    
+
     generateScramble() {
-        
+        const scramble = new Scrambo().type(this.props.puzzleType).get(1);
+        this.setState({ scramble });
     }
-    
+
     render() {
         return (
-            <div class='TopBarWrapper'>
+            <div className='TopBarWrapper'>
                 {this.state.puzzleType}
             </div>
         );

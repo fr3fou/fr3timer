@@ -4,10 +4,10 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^1.5.0",
-    "cubejs": "^1.1.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "scrambo": "^0.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
