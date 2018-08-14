@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../assets/css/App.css';
 import TopBar from './TopBar';
-
+import Timer from './Timer';
 class App extends Component {
   constructor(props) {
     super(props);
@@ -9,10 +9,18 @@ class App extends Component {
       puzzleType: 333
     }
   }
+
+  handleKeyPressed(e) {
+    if(e.key === 'Space'){
+      console.log('timer started')
+    }
+  }
+
   render() {
     return (
       <div>
-        <TopBar puzzleType={this.state.puzzleType}/>
+        <TopBar onKeyPress={this.handleKeyPressed} puzzleType={this.state.puzzleType}/>
+        <Timer /> 
       </div>
     );
   } 
