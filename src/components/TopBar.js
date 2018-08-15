@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import '../assets/css/TopBar.css';
 import Scrambo from 'scrambo';
-import Solve from '../models/solve';
+// import Solve from '../models/solve';
+import '../assets/css/cubing-icons.css';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 
@@ -15,6 +16,8 @@ class TopBar extends Component {
         }
         this.handleChange = this.handleChange.bind(this);
     }
+
+    component
 
     componentDidMount() {
         this.generateScramble();
@@ -36,8 +39,13 @@ class TopBar extends Component {
     }
 
     render() {
+        let visibleStyle = this.props.visible ? {display: 'block'} : {display: 'none'};
+        console.log(visibleStyle);
+        let iconName = `cubing-icon event-${this.state.puzzleType}`;
         return (
-            <div className='TopBarWrapper'>
+            <div className='TopBarWrapper' style={visibleStyle}>
+                <span className={iconName}></span>
+                <br />
                 {this.state.puzzleName}
                 <div className='TopBarScramble'>
                     {this.state.scramble}
