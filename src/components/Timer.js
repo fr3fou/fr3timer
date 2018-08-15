@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../assets/css/Timer.css';
 import ms from 'pretty-ms';
 
 class Timer extends Component {
@@ -64,8 +65,10 @@ class Timer extends Component {
     render() {
         return (
             <div>
-                <h3>timer:{ms(this.state.time)} </h3>
-                <h3>ready:{this.state.ready}</h3>
+                <h3 className="Clock">{ms(this.state.time, {
+                      keepDecimalsOnWholeSeconds: true,
+                      secDecimalDigits: Number(this.props.digits) 
+                })}</h3>
             </div>
         );
     }
