@@ -1,7 +1,7 @@
 .TopBarWrapper {
     text-align:center;
     background-color: rgb(217,66,53);
-    height: 150px;
+    /* height: 150px; */
     padding: 20px;
     color:white;
     font-size:3em;
@@ -14,5 +14,5 @@
 }
 
 .PuzzleType {
-    
+
 }
