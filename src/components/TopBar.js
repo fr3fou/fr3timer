@@ -26,8 +26,9 @@ class TopBar extends Component {
     handleChange(e) {
         this.setState({
             puzzleType: e.target.value
-        });
-        this.generateScramble();
+        }, () => {
+            this.generateScramble();
+        })
     }
 
     render() {
@@ -40,10 +41,7 @@ class TopBar extends Component {
                 <Select
                     value={this.state.puzzleType}
                     onChange={this.handleChange}
-                    inputProps={{
-                        name: 'age',
-                        id: 'age-simple',
-                    }}>
+                >
                     <MenuItem value={222}>2x2x2</MenuItem>
                     <MenuItem value={333}>3x3x3</MenuItem>
                     <MenuItem value={444}>4x4x4</MenuItem>

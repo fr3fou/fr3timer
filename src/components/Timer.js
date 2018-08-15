@@ -47,7 +47,7 @@ class Timer extends Component {
         if (e.keyCode === 32 && this.state.isStarted === false) {
             this.resetTimer();
             this.startTimer();
-        } else if(this.state.isStarted === true) {
+        } else if (this.state.isStarted === true) {
             this.stopTimer();
         }
     }
@@ -66,9 +66,10 @@ class Timer extends Component {
         return (
             <div>
                 <h3 className="Clock">{ms(this.state.time, {
-                      keepDecimalsOnWholeSeconds: true,
-                      secDecimalDigits: Number(this.props.digits) 
-                })}</h3>
+                    keepDecimalsOnWholeSeconds: true,
+                    secDecimalDigits: Number(this.props.digits)
+                })}
+                </h3>
             </div>
         );
     }
