@@ -16,7 +16,7 @@ class App extends Component {
     }
   }
 
-  handleTimer(isStarted) {
+  handleTimer() {
     this.setState({
       isTopBarVisible: !this.state.isTopBarVisible
     });

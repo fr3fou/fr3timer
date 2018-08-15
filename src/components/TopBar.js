@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../assets/css/TopBar.css';
 import Scrambo from 'scrambo';
+import { Spring } from 'react-spring'
 // import Solve from '../models/solve';
 import '../assets/css/cubing-icons.css';
 import Select from '@material-ui/core/Select';
@@ -39,31 +40,35 @@ class TopBar extends Component {
     }
 
     render() {
-        let visibleStyle = this.props.visible ? {display: 'block'} : {display: 'none'};
-        console.log(visibleStyle);
+        let toggle = this.props.visible;
         let iconName = `cubing-icon event-${this.state.puzzleType}`;
         return (
-            <div className='TopBarWrapper' style={visibleStyle}>
-                <span className={iconName}></span>
-                <br />
-                {this.state.puzzleName}
-                <div className='TopBarScramble'>
-                    {this.state.scramble}
+            <Spring
+                from={{ opacity: toggle ? 0 : 1 }}
+                to={{ opacity: toggle ? 1 : 0 }}>
+                {styles => <div className='TopBarWrapper' style={styles}>
+                    <span className={iconName}></span>
+                    <br />
+                    {this.state.puzzleName}
+                    <div className='TopBarScramble'>
+                        {this.state.scramble}
+                    </div>
+                    <div>
+                        <Select
+                            value={this.state.puzzleType}
+                            onChange={this.handleChange}
+                            inputProps={{
+                                id: 'puzzleTypeSelect',
+                            }}>
+                            <MenuItem value={222}>2x2x2</MenuItem>
+                            <MenuItem value={333}>3x3x3</MenuItem>
+                            <MenuItem value={444}>4x4x4</MenuItem>
+                        </Select>
+                    </div>
                 </div>
-                <div>
-                    <Select
-                        value={this.state.puzzleType}
-                        onChange={this.handleChange}
-                        inputProps={{
-                            id: 'puzzleTypeSelect',
-                        }}
-                    >
-                        <MenuItem value={222}>2x2x2</MenuItem>
-                        <MenuItem value={333}>3x3x3</MenuItem>
-                        <MenuItem value={444}>4x4x4</MenuItem>
-                    </Select>
-                </div>
-            </div>
+                }
+            </Spring>
+
         );
     }
 }

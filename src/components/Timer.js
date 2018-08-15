@@ -47,10 +47,10 @@ class Timer extends Component {
         if (e.keyCode === 32 && this.state.isStarted === false) {
             this.resetTimer();
             this.startTimer();
-            this.props.isWorking(this.state.isStarted);
+            this.props.isWorking();
         } else if (this.state.isStarted === true) {
             this.stopTimer();
-            this.props.isWorking(this.state.isStarted);
+            this.props.isWorking();
         }
     }
 
