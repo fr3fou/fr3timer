@@ -41,11 +41,10 @@ class TopBar extends Component {
         let visible = this.props.visible;
         let iconName = `cubing-icon event-${this.state.puzzleType}`;
         return (
-
             <div >
                 <Spring
                     from={{ height: 0 }}
-                    force to={{ height: visible ? 'auto' : 0 }}>
+                    force to={{ height: visible && this.state.scramble !== "" ? 'auto' : 0 }}>
                     {styles =>
                         <div className='TopBarWrapper' style={styles}>
                             <span className={iconName}></span>

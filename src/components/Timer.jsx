@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../assets/css/Timer.css';
-import ms from 'pretty-ms';
+import pretty from 'pretty-time';
 
 class Timer extends Component {
     constructor(props) {
@@ -68,10 +68,9 @@ class Timer extends Component {
         return (
             <div className="Clock">
                 <p>
-                    {ms(this.state.time, {
-                        keepDecimalsOnWholeSeconds: true,
-                        secDecimalDigits: Number(this.props.digits),
-                    })}
+                    {
+                        pretty([0, this.state.time * 1000000], 's', Number(this.props.digits))
+                    }
                 </p>
             </div>
         );
