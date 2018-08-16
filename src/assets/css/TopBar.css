@@ -1,10 +1,12 @@
 .TopBarWrapper {
-    text-align:center;
-    background-color: rgb(217,66,53);
-    width: 100%;
-    color:white;
-    font-size:3em;
+    text-align: center;
+    background-color: rgb(217, 66, 53);
+    position: fixed;
     top: 0;
+    height: auto;
+    width: 100%;
+    color:black;
+    font-size: 3em;
     box-shadow: 1px 1px 1px #888888;
 }
 

@@ -14,7 +14,6 @@ class BottomBar extends Component {
                         asdf
                     </div>
                 }
-
             </Spring>
         );
     }
