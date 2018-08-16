@@ -16,8 +16,6 @@ class TopBar extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    component
-
     componentDidMount() {
         this.generateScramble();
     }
@@ -42,7 +40,7 @@ class TopBar extends Component {
         let iconName = `cubing-icon event-${this.state.puzzleType}`;
         return (
                 <Transition
-                    from={{height: 'auto'}}
+                    from={{height: 0}}
                     force to={{ height: visible && this.state.scramble !== "" ? 'auto' : 0 }}>
                     {styles =>
                         <div className='TopBarWrapper' style={styles}>
