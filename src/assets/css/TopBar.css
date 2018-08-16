@@ -1,15 +1,14 @@
 .TopBarWrapper {
     text-align:center;
     background-color: rgb(217,66,53);
-    padding: 20px;
-    width: auto;
+    width: 100%;
     color:white;
     font-size:3em;
+    top: 0;
     box-shadow: 1px 1px 1px #888888;
 }
 
 .TopBarScramble {
-    margin-top: 30px;
     font-size: 2rem;
 }
 

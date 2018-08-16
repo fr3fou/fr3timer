@@ -1,5 +1,14 @@
 .Clock {
     font-family: Roboto;
     font-size: 10rem;
-    text-align: center
+    text-align: center;
+    position: fixed;
+    top: 100px;
+    bottom: 100px;
+    left: 0;
+    right: 0;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
 }

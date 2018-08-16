@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import '../assets/css/App.css';
-import TopBar from './TopBar';
-import Timer from './Timer';
+import './assets/css/App.css';
+import TopBar from './components/TopBar.jsx';
+import Timer from './components/Timer.jsx';
+import BottomBar from './components/BottomBar.jsx';
 
 // important!!!
 // https://stackoverflow.com/questions/37949981/call-child-method-from-parent
@@ -12,21 +13,22 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isTopBarVisible: true,
+      isSolving: true,
     }
   }
 
   handleTimer() {
     this.setState({
-      isTopBarVisible: !this.state.isTopBarVisible
+      isSolving: !this.state.isSolving
     });
   }
 
   render() {
     return (
       <div>
-        <TopBar visible={this.state.isTopBarVisible} />
+        <TopBar visible={this.state.isSolving} />
         <Timer digits='1' isWorking={this.handleTimer.bind(this)} />
+        <BottomBar visible={this.state.isSolving} />
       </div>
     );
   }

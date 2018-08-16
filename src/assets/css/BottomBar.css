@@ -1,0 +1,10 @@
+.BottomBarWrapper {
+    text-align: center;
+    background-color: rgb(217, 66, 53);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    font-size: 3em;
+    box-shadow: 1px 1px 1px #888888;
+}

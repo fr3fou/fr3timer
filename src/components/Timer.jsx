@@ -66,12 +66,13 @@ class Timer extends Component {
 
     render() {
         return (
-            <div>
-                <h3 className="Clock">{ms(this.state.time, {
-                    keepDecimalsOnWholeSeconds: true,
-                    secDecimalDigits: Number(this.props.digits),
-                })}
-                </h3>
+            <div className="Clock">
+                <p>
+                    {ms(this.state.time, {
+                        keepDecimalsOnWholeSeconds: true,
+                        secDecimalDigits: Number(this.props.digits),
+                    })}
+                </p>
             </div>
         );
     }
