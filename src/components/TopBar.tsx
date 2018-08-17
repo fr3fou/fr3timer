@@ -1,27 +1,26 @@
-import React, { Component } from 'react';
-import '../assets/css/TopBar.css';
-import Scrambo from 'scrambo';
+import * as React from 'react';
 import { Spring } from 'react-spring'
-// import Solve from '../models/solve';
+import * as Scrambo from 'scrambo';
 import '../assets/css/cubing-icons.css';
+import '../assets/css/TopBar.css';
+// import Solve from '../models/solve';
 
-class TopBar extends Component {
-    constructor(props) {
+class TopBar extends React.Component<any, any> {
+    constructor(props: {}) {
         super(props);
         this.state = {
-            puzzleType: 333,
-            puzzleName: '3x3x3',
             prevScramble: '',
+            puzzleName: '3x3x3',
+            puzzleType: 333,
             scramble: ''
         }
-        this.handleChange = this.handleChange.bind(this);
     }
 
     componentDidMount() {
         this.generateScramble();
     }
 
-    componentDidUpdate(prevProps) {
+    componentDidUpdate(prevProps: any) {
         if (this.props.isSolving !== prevProps.isSolving) {
             if (this.props.isSolving) {
                 this.setState({
@@ -37,19 +36,9 @@ class TopBar extends Component {
         this.setState({ scramble });
     }
 
-    handleChange(e) {
-        // console.log(e);
-        // this.setState({
-        //     puzzleName: e._targetInst.stateNode.innerText,
-        //     puzzleType: e.target.value
-        // }, () => {
-        //     this.generateScramble();
-        // });
-    }
-
     render() {
-        let visible = this.props.isSolving;
-        let iconName = `cubing-icon event-${this.state.puzzleType}`;
+        const visible = this.props.isSolving;
+        const iconName = `cubing-icon event-${this.state.puzzleType}`;
         return (
             <Spring
                 from={{ height: 0 }}
@@ -57,7 +46,7 @@ class TopBar extends Component {
                 {styles =>
                     <div className='TopBarWrapper' style={styles}>
                         <div className='TopBarInner'>
-                            <span className={iconName}></span>
+                            <span className={iconName} />
                             <br />
                             {this.state.puzzleName}
                             <div className='TopBarScramble'>

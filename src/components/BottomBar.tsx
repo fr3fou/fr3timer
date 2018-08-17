@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import '../assets/css/BottomBar.css';
+import * as React from 'react';
 import { Spring } from 'react-spring';
-import EventSwitcher from './EventSwitcher';
-class BottomBar extends Component {
+import '../assets/css/BottomBar.css';
+import EventSwitcher from './EventSwitcher'; 
+class BottomBar extends React.Component<any, any> {
 
     render() {
-        let visible = this.props.isSolving;
+        const visible = this.props.isSolving;
         return (
             <Spring from={{ height: 0 }}
                 force to={{ height: visible ? 'auto' : 0 }}>

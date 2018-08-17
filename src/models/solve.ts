@@ -1,5 +1,8 @@
 class Solve {
-    constructor(time, scramble) {
+    time: string
+    scramble: string
+    date: any
+    constructor(time: string, scramble: string) {
         this.time = time;
         this.scramble = scramble;
         this.date = Date.now()

@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import '../assets/css/UnderBar.css';
+import * as React from 'react';
 import { Spring } from 'react-spring';
+import '../assets/css/UnderBar.css';
 
-class UnderBar extends Component {
+class UnderBar extends React.Component<any, any> {
     render() {
-        let visible = this.props.isSolving;
+        const visible = this.props.isSolving;
         return (
             <Spring
                 from={{ opacity: 0 }}

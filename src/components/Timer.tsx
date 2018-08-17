@@ -1,17 +1,20 @@
-import React, { Component } from 'react';
+import * as pretty from 'pretty-time';
+import * as React from 'react';
 import '../assets/css/Timer.css';
-import pretty from 'pretty-time';
 // important!!!
 // https://stackoverflow.com/questions/48048957/react-long-press-event
 // important!!!
-class Timer extends Component {
-    constructor(props) {
+class Timer extends React.Component<any, any> {
+    timer: any
+    isBeingHeldTimer: any
+
+    constructor(props: {}) {
         super(props);
 
         this.state = {
             isStarted: false,
-            time: 0,
             start: 0,
+            time: 0,
         }
 
         this.startTimer = this.startTimer.bind(this);
@@ -44,15 +47,15 @@ class Timer extends Component {
         this.setState({ time: 0 })
     }
 
-    handleTouchStart(e) {
+    handleTouchStart() {
         console.log('owo! its qt :3');
     }
 
-    handleTouchEnd(e) {
+    handleTouchEnd() {
         console.log('uwu! its qt :>');
     }
 
-    handleButtonPress(e) {
+    handleButtonPress(e: any) {
         if (e.keyCode === 32 && this.state.isStarted === false) {
             this.resetTimer();
             this.startTimer();
@@ -63,7 +66,7 @@ class Timer extends Component {
         }
     }
 
-    handleButtonRelease(e) {
+    handleButtonRelease(e: any) {
         clearTimeout(this.isBeingHeldTimer);
     }
 
