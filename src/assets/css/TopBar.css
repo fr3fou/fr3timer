@@ -3,17 +3,20 @@
     background-color: rgb(217, 66, 53);
     position: fixed;
     top: 0;
-    height: auto;
+    height: 50vh;   
     width: 100%;
-    color:black;
+    color: black;
     font-size: 3em;
     box-shadow: 1px 1px 1px #888888;
+    overflow: hidden;
+}
+
+.TopBarInner {
+    
 }
 
 .TopBarScramble {
     font-size: 2rem;
 }
 
-.PuzzleType {
-
-}
+.PuzzleType {}

@@ -39,11 +39,12 @@ class TopBar extends Component {
         let visible = this.props.visible;
         let iconName = `cubing-icon event-${this.state.puzzleType}`;
         return (
-                <Transition
-                    from={{height: 0}}
-                    force to={{ height: visible && this.state.scramble !== "" ? 'auto' : 0 }}>
-                    {styles =>
-                        <div className='TopBarWrapper' style={styles}>
+            <Transition
+                from={{ height: 0 }}
+                force to={{ height: visible && this.state.scramble !== "" ? 'auto' : 0 }}>
+                {styles =>
+                    <div className='TopBarWrapper' style={styles}>
+                        <div className='TopBarInner'>
                             <span className={iconName}></span>
                             <br />
                             {this.state.puzzleName}
@@ -51,7 +52,8 @@ class TopBar extends Component {
                                 {this.state.scramble}
                             </div>
                         </div>
-                    }</Transition>
+                    </div>
+                }</Transition>
         );
     }
 }
