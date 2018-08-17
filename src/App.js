@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './assets/css/App.css';
+import './assets/fonts/style.css';
 import TopBar from './components/TopBar.jsx';
 import Timer from './components/Timer.jsx';
 import BottomBar from './components/BottomBar.jsx';
@@ -26,9 +27,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        <TopBar visible={this.state.isSolving} />
-        <Timer digits='1' isWorking={this.handleTimer.bind(this)} />
-        <BottomBar visible={this.state.isSolving} />
+        <TopBar isSolving={this.state.isSolving} />
+        <Timer digits='1' isSolving={this.handleTimer.bind(this)} />
+        <BottomBar isSolving={this.state.isSolving} />
       </div>
     );
   }

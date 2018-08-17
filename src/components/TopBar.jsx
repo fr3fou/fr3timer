@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../assets/css/TopBar.css';
 import Scrambo from 'scrambo';
-import { Spring, Transition } from 'react-spring'
+import { Spring } from 'react-spring'
 // import Solve from '../models/solve';
 import '../assets/css/cubing-icons.css';
 
@@ -26,20 +26,20 @@ class TopBar extends Component {
     }
 
     handleChange(e) {
-        console.log(e);
-        this.setState({
-            puzzleName: e._targetInst.stateNode.innerText,
-            puzzleType: e.target.value
-        }, () => {
-            this.generateScramble();
-        });
+        // console.log(e);
+        // this.setState({
+        //     puzzleName: e._targetInst.stateNode.innerText,
+        //     puzzleType: e.target.value
+        // }, () => {
+        //     this.generateScramble();
+        // });
     }
 
     render() {
-        let visible = this.props.visible;
+        let visible = this.props.isSolving;
         let iconName = `cubing-icon event-${this.state.puzzleType}`;
         return (
-            <Transition
+            <Spring
                 from={{ height: 0 }}
                 force to={{ height: visible && this.state.scramble !== "" ? 'auto' : 0 }}>
                 {styles =>
@@ -53,7 +53,8 @@ class TopBar extends Component {
                             </div>
                         </div>
                     </div>
-                }</Transition>
+                }
+            </Spring>
         );
     }
 }

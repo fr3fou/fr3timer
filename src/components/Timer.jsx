@@ -47,15 +47,15 @@ class Timer extends Component {
         if (e.keyCode === 32 && this.state.isStarted === false) {
             this.resetTimer();
             this.startTimer();
-            this.props.isWorking();
+            this.props.isSolving();
         } else if (this.state.isStarted === true) {
             this.stopTimer();
-            this.props.isWorking();
+            this.props.isSolving();
         }
     }
 
     componentDidMount() {
-        window.addEventListener('keydown', this.handleKeyPressed);
+       window.addEventListener('keydown', this.handleKeyPressed);
         window.addEventListener('keyup', this.handleKeyUp);
     }
 
