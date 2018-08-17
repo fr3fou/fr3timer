@@ -11,6 +11,7 @@ class TopBar extends Component {
         this.state = {
             puzzleType: 333,
             puzzleName: '3x3x3',
+            prevScramble: '',
             scramble: ''
         }
         this.handleChange = this.handleChange.bind(this);
@@ -23,7 +24,10 @@ class TopBar extends Component {
     componentDidUpdate(prevProps) {
         if (this.props.isSolving !== prevProps.isSolving) {
             if (this.props.isSolving) {
-                this.generateScramble();
+                this.setState({
+                    prevScramble: this.state.scramble
+                },
+                    () => this.generateScramble())
             }
         }
     }

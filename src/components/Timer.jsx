@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import '../assets/css/Timer.css';
 import pretty from 'pretty-time';
-
+// important!!!
+// https://stackoverflow.com/questions/48048957/react-long-press-event
+// important!!!
 class Timer extends Component {
     constructor(props) {
         super(props);
 
-        // we need 2 timers, one to wait a few seconds while the spacebar is being held down
-        // and one more for the actual solve
         this.state = {
             isStarted: false,
             time: 0,
@@ -17,7 +17,8 @@ class Timer extends Component {
         this.startTimer = this.startTimer.bind(this);
         this.stopTimer = this.stopTimer.bind(this);
         this.resetTimer = this.resetTimer.bind(this);
-        this.handleKeyPressed = this.handleKeyPressed.bind(this);
+        this.handleButtonPress = this.handleButtonPress.bind(this);
+        this.handleButtonRelease = this.handleButtonRelease.bind(this);
     }
 
     startTimer() {
@@ -43,7 +44,15 @@ class Timer extends Component {
         this.setState({ time: 0 })
     }
 
-    handleKeyPressed(e) {
+    handleTouchStart(e) {
+        console.log('owo! its qt :3');
+    }
+
+    handleTouchEnd(e) {
+        console.log('uwu! its qt :>');
+    }
+
+    handleButtonPress(e) {
         if (e.keyCode === 32 && this.state.isStarted === false) {
             this.resetTimer();
             this.startTimer();
@@ -54,19 +63,23 @@ class Timer extends Component {
         }
     }
 
+    handleButtonRelease(e) {
+        clearTimeout(this.isBeingHeldTimer);
+    }
+
     componentDidMount() {
-        window.addEventListener('keydown', this.handleKeyPressed);
-        window.addEventListener('keyup', this.handleKeyUp);
+        window.addEventListener('keydown', this.handleButtonPress);
+        window.addEventListener('keyup', this.handleButtonRelease);
     }
 
     componentWillUnmount() {
-        window.removeEventListener('keydown', this.handleKeyPressed);
-        window.removeEventListener('keyup', this.handleKeyUp);
+        window.removeEventListener('keydown', this.handleButtonPress);
+        window.removeEventListener('keyup', this.handleButtonRelease);
     }
 
     render() {
         return (
-            <div className="Clock">
+            <div className="Clock" onTouchStart={this.handleTouchStart} onTouchEnd={this.handleTouchEnd} >
                 <p>
                     {
                         pretty([0, this.state.time * 1000000], 's', Number(this.props.digits))
