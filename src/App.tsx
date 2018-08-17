@@ -1,4 +1,4 @@
-import * as React  from 'react';
+import * as React from 'react';
 import './assets/css/App.css';
 import './assets/fonts/style.css';
 import BottomBar from './components/BottomBar';

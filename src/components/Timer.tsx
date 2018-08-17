@@ -1,9 +1,11 @@
 import * as pretty from 'pretty-time';
 import * as React from 'react';
 import '../assets/css/Timer.css';
+
 // important!!!
 // https://stackoverflow.com/questions/48048957/react-long-press-event
 // important!!!
+
 class Timer extends React.Component<any, any> {
     timer: any
     isBeingHeldTimer: any
