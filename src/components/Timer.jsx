@@ -55,7 +55,7 @@ class Timer extends Component {
     }
 
     componentDidMount() {
-       window.addEventListener('keydown', this.handleKeyPressed);
+        window.addEventListener('keydown', this.handleKeyPressed);
         window.addEventListener('keyup', this.handleKeyUp);
     }
 

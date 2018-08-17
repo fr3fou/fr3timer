@@ -20,6 +20,14 @@ class TopBar extends Component {
         this.generateScramble();
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.isSolving !== prevProps.isSolving) {
+            if (this.props.isSolving) {
+                this.generateScramble();
+            }
+        }
+    }
+
     generateScramble() {
         const scramble = new Scrambo().type(this.state.puzzleType).get(1);
         this.setState({ scramble });
