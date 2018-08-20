@@ -14,7 +14,7 @@ class App extends React.Component<any, any> {
   constructor(props: {}) {
     super(props);
     this.state = {
-      isSolving: true,
+      isSolving: true
     }
     this.handleTimer = this.handleTimer.bind(this);
   }
